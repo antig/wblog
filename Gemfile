@@ -1,6 +1,6 @@
-source 'https://rubygems.org'
+source 'https://gems.ruby-china.org'
 
-ruby '2.2.3'
+ruby '2.2.4'
 
 gem 'rails', '>= 5.0.0.beta3', '< 5.1'
 gem 'sass-rails', '~> 5.0'

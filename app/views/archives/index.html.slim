@@ -1,7 +1,13 @@
 - content_for(:title) do
   | #{t('title.timeline')}
-.row
+.row ng-controller="ArchivesController"
   .small-12.large-9.large-centered.columns
+    p
+    = form_tag 
+      .row 
+        = label_tag '搜索文章(支持正则表达式)'
+        = text_field_tag 'search_text', params[:search_text]
+      button.button type='submit' 查找相关文章
     ul.archives-field
       - @posts.each do |post|
         li
