@@ -13,8 +13,8 @@ class ArchivesController < ApplicationController
                 @posts = Post.where(:id => sp).page(params[:page])
                 render :index
              rescue
-                render :text => '系统错误，请重试'
-                redirect_to :action => 'index'
+                #render :text => '系统错误，请重试'
+                return true
              end
          end
     end 
@@ -28,8 +28,16 @@ class ArchivesController < ApplicationController
             end
         end 
     end
+    pt = nil
+    gx = nil
     pt = pattern.upcase
-    gx = Regexp.new(pt)
+    if flag
+        begin
+           gx = Regexp.new(pt)
+        rescue
+           render :text => '正则表达式语法错误！'
+        end
+    end
     Post.find_each do |e|
        if flag
           r << e if e.title.upcase =~ gx 
