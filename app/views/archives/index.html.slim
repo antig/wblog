@@ -5,7 +5,7 @@
     p
     = form_tag 
       .row 
-        = label_tag '搜索文章(支持正则表达式)'
+        = label_tag '搜索文章(默认仅字面匹配，同时支持正则表达式，格式为 #r:一个正则表达式。两种搜索方法都忽略大小写。)'
         = text_field_tag 'search_text', params[:search_text]
       button.button type='submit' 查找相关文章
     ul.archives-field

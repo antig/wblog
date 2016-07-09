@@ -19,11 +19,23 @@ class ArchivesController < ApplicationController
          end
     end 
   end
-  def search(pattern)
+  def search(pattern, flag = false)
     r = []
-    gx = Regexp.new(pattern)
+    if pattern[0] == '#'
+        if pattern[1] == 'r'
+            if pattern[2] == ':'
+                 return search(pattern[3, pattern.length], true)
+            end
+        end 
+    end
+    pt = pattern.upcase
+    gx = Regexp.new(pt)
     Post.find_each do |e|
-       r << e if e.title =~ gx       
+       if flag
+          r << e if e.title.upcase =~ gx 
+        else
+          r << e if e.title.upcase.include? pt
+        end      
     end
     return r
   end
