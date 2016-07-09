@@ -3,6 +3,7 @@ WBlog::Application.routes.draw do
   resources :blogs, :only=>[:index, :show, :edit] do
     collection do
       get :rss
+      get :unexist
     end
     resources :comments, only: [:index, :create] do
       collection do
@@ -17,7 +18,11 @@ WBlog::Application.routes.draw do
   end
 
 
-  resources :archives
+  resources :archives do
+    collection do
+      get :regex_err
+    end
+  end
   resources :subscribes, only: [:index, :new, :create]
 
   resources :unsubscribes, only: [:index, :new, :create]

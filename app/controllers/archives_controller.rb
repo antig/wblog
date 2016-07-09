@@ -35,7 +35,8 @@ class ArchivesController < ApplicationController
         begin
            gx = Regexp.new(pt)
         rescue
-           render :text => '正则表达式语法错误！'
+           redirect_to :action => 'regex_err'
+           return
         end
     end
     Post.find_each do |e|
@@ -46,5 +47,8 @@ class ArchivesController < ApplicationController
         end      
     end
     return r
+  end
+  def regex_err
+    
   end
 end
