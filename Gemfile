@@ -22,6 +22,7 @@ gem 'jbuilder'
 gem 'pg'
 
 gem 'redcarpet'
+gem 'coderay'
 gem 'rouge'
 gem 'slim-rails'
 gem 'simple_form'

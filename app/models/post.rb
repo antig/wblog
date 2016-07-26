@@ -1,4 +1,11 @@
 require 'markdown'
+require 'coderay'
+class HTMLwithCodeRay < Redcarpet::Render::HTML
+    def block_code(code, lang)
+        lang = "text" if lang.blank?
+        CodeRay.scan(code, lang).div(:tab_width => 4)
+    end
+end
 class Post < ActiveRecord::Base
   has_many :comments
   has_and_belongs_to_many :labels
@@ -20,8 +27,8 @@ class Post < ActiveRecord::Base
 
   def self.render_html(content)
     rd = CodeHTML.new
-    md = Redcarpet::Markdown.new(rd, autolink: true, fenced_code_blocks: true)
-    md.render(content)
+    md = Redcarpet::Markdown.new(rd, autolink: true, fenced_code_blocks: true, strikethrough: true, no_intra_emphasis: true, space_after_headers: true, lax_html_blocks: true, tables: true, superscript: true, hard_wrap: true)
+    md.render(content).html_safe
   end
 
   def visited
