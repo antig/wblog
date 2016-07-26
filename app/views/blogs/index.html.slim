@@ -1,3 +1,6 @@
+// .row  //这个代码可以显示来访者的ip和大致地理位置
+ //   script type="text/javascript" src="http://ip.chinaz.com/getip.aspx"
+
 - if ENV['INTRODUCE'].present?
   - content_for(:meta) do
     meta name="description" content="#{ENV['INTRODUCE'].dup.force_encoding('UTF-8')}"
