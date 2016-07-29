@@ -1,2 +1,21 @@
+h4 Music!
 .row
-    test
+  embed src="http://www.xiami.com/widget/206421951_1770362953,2073511,2088539,3507901,2114139,1770362969,1770362952,1770362966,1771902816,2088555,_270_240_cccccc_dddddd_0/multiPlayer.swf" type="application/x-shockwave-flash" width="270" height="240" wmode="opaque"
+
+h4 近期博客
+.row
+  - @recent.each do |re|
+    li = link_to re.title, blog_path(re) 
+h4 阅读排行
+.row
+  - @readsort.each do |rs|
+    li = link_to rs.title, blog_path(rs)
+h4 近期评论
+.row
+  - @recent_comm.each do |rc|
+    li = rc.name
+    .row
+      = rc.content
+    .row 
+      = '  '
+  

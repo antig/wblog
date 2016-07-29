@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
 
   def index
     @newest = Post.order(created_at: :desc).first
-    @recent = Post.order(created_at: :desc).to_a[1..3]
+    @recent = Post.order(created_at: :desc).to_a[1..4]
     respond_to do |format|
       format.html
       format.json
@@ -21,7 +21,10 @@ class BlogsController < ApplicationController
   end
   def show
     cookies[:cable_id] = SecureRandom.uuid
-    
+    @recent = Post.order(created_at: :desc).to_a[1..8]
+    @readsort = Post.order(visited_count: :desc).to_a[1..8]
+    @recent_comm = Comment.order(created_at: :desc).to_a[1..6]
+
     @post = Post.find_by_id(params[:id])
     if @post == nil
       redirect_to :action => 'unexist'
