@@ -69,3 +69,5 @@ group :test, :development do
   gem 'byebug'
   gem 'factory_girl_rails'
 end
+
+gem 'ssl_requirement'
