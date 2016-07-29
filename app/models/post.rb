@@ -24,7 +24,6 @@ class Post < ActiveRecord::Base
   def content_html
     self.class.render_html(self.content)
   end
-
   def self.render_html(content)
     rd = CodeHTML.new
     md = Redcarpet::Markdown.new(rd, autolink: true, fenced_code_blocks: true, strikethrough: true, no_intra_emphasis: true, lax_html_blocks: true, tables: true, superscript: true, hard_wrap: true)
