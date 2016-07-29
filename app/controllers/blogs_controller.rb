@@ -2,8 +2,8 @@
 class BlogsController < ApplicationController
 
   def index
-    @newest = Post.order(created_at: :desc).first
-    @recent = Post.order(created_at: :desc).to_a[1..4]
+    @newest,@secnew = Post.order(created_at: :desc).to_a[0..1]
+    @recent = Post.order(created_at: :desc).to_a[2..5]
     respond_to do |format|
       format.html
       format.json

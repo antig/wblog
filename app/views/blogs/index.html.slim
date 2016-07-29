@@ -17,6 +17,12 @@
 
         = link_to t('home.read'), blog_path(@newest), class: 'read-more'
         p.published-at #{t('home.created_at')} #{format_date(@newest.created_at)}
+      - if @secnew
+        = render partial: 'post_head', locals: { post: @secnew}
+        .content.markdown
+          == @secnew.sub_content
+          = link_to t('home.read'), blog_path(@secnew), class: 'read-more'
+          p.published-at #{t('home.created_at')} #{format_date(@secnew.created_at)}
 
       - if @recent.present?
         h4.recent-title #{t('home.recent')}
@@ -42,3 +48,5 @@
             #rss-home.rss-subscribe.hide data-toggler='hide'
               = link_to rss_blogs_path do
                 - image_tag('rss.png')
+    .row
+      = render 'common/friends'
