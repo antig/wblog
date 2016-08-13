@@ -1,0 +1,7 @@
+.row
+  .small-12.large-9.large-centered.columns
+    = form_for :haskell do |f|
+      .row
+        .small-12.large-12.columns
+          = f.text_area :code
+      = f.submit '提交'

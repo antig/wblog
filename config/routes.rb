@@ -17,7 +17,6 @@ WBlog::Application.routes.draw do
     end
   end
 
-
   resources :archives do
     collection do
       get :regex_err
@@ -49,6 +48,10 @@ WBlog::Application.routes.draw do
 
   get '/about' => 'home#index'
   get '/mobile' => 'home#mobile'
+  get '/haskell' => 'haskell#index'  
+  get 'haskell/index'
+  get 'reward/index' 
+  get '/reward' => 'reward#index'
 
   root 'blogs#index'
 
