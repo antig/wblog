@@ -12,7 +12,17 @@ class ApplicationController < ActionController::Base
   def format_date(time)
     time.strftime("%Y.%m.%d")
   end
+=begin
+  def self.rescue_errors
+     rescue_from ActionController::RoutingError,       :with => :render_not_found
+     rescue_from ActionController::UnknownController,  :with => :render_not_found
+     rescue_from ActionController::UnknownAction,      :with => :render_not_found
+  end
 
+  def render_not_found(excp = nil)
+    render :template => "errors/404", :status => 404, :layout => 'public'
+  end
+=end
   protected
   def authericate_user!
     if ! session[:login]

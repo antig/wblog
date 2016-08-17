@@ -21,9 +21,9 @@ class BlogsController < ApplicationController
   end
   def show
     cookies[:cable_id] = SecureRandom.uuid
-    @recent = Post.order(created_at: :desc).to_a[0..7]
-    @readsort = Post.order(visited_count: :desc).to_a[0..7]
-    @recent_comm = Comment.order(created_at: :desc).to_a[0..5]
+    @recent = Post.order(created_at: :desc).to_a[0..9]
+    @readsort = Post.order(visited_count: :desc).to_a[0..9]
+    @recent_comm = Comment.order(created_at: :desc).to_a[0..6]
 
     @post = Post.find_by_id(params[:id])
     if @post == nil
