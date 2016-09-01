@@ -1,6 +1,12 @@
 class ArchivesController < ApplicationController
   def index
-    @posts = Post.order(created_at: :desc).page(params[:page])
+    if params[:search_text]
+        p = params[:search_text]
+        sp = search p
+        @posts = Post.where(:id => sp).page(params[:page])
+    else
+        @posts = Post.order(created_at: :desc).page(params[:page])
+    end
   end
   def create
     p = params[:search_text]
