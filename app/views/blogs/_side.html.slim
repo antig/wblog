@@ -15,7 +15,7 @@ h4 觉得不错的话打赏一下
 h4 近期评论
 .row
   - @recent_comm.each do |rc|
-    li = link_to '查看↓', "/blogs/#{rc.post_id}"
+    li = link_to '查看↓', "/blogs/#{rc.post_id}#comment"
     .row
       = "#{rc.name}: #{rc.content}"
     .row 
