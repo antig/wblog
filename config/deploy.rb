@@ -19,7 +19,7 @@ set :shared_paths, ['config/database.yml', 'config/application.yml', 'log', 'tmp
 set :rvm_path, '/usr/local/rvm/scripts/rvm'
 
 task :environment do
-  invoke :'rvm:use[2.2.3]'
+  invoke :'rvm:use[2.2.4]'
 end
 
 task :setup => :environment do

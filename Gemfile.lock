@@ -305,7 +305,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    ssl_requirement (0.1.0)
     temple (0.7.7)
     thor (0.19.1)
     thread_safe (0.3.5)
@@ -334,7 +333,6 @@ DEPENDENCIES
   capybara
   carrierwave
   codeclimate-test-reporter
-  coderay
   coffee-rails (~> 4.1.0)
   database_cleaner
   factory_girl_rails
@@ -378,7 +376,6 @@ DEPENDENCIES
   slim-rails
   spring
   spring-watcher-listen (~> 2.0.0)
-  ssl_requirement
   turbolinks (~> 5.x)
   uglifier (>= 2.7.2)
 

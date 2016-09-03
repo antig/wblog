@@ -11,7 +11,8 @@ h4 阅读排行
     li = link_to rs.title, blog_path(rs)
 h4 觉得不错的话打赏一下
 .row
-  li = link_to '打赏', '/reward'
+  li = link_to "打赏", '/reward'
+
 h4 近期评论
 .row
   - @recent_comm.each do |rc|
