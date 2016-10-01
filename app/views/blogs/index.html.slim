@@ -4,6 +4,7 @@
 - if ENV['INTRODUCE'].present?
   - content_for(:meta) do
     meta name="description" content="#{ENV['INTRODUCE'].dup.force_encoding('UTF-8')}"
+
 - content_for(:title) do
   | #{t('title.home')}
 .row
@@ -45,10 +46,12 @@
             #qrcode-home.weixin-subscribe.hide data-toggler='hide' data-url=root_url
           li
             a data-toggle="rss-home" #{t('subscribes.rss') }
+
             #rss-home.rss-subscribe.hide data-toggler='hide'
               = link_to rss_blogs_path do
                 - image_tag('rss.png')
     .row
       = render 'common/friends'
-.row
-  = render 'blogs/updates'
+  .row
+    = render 'blogs/updates'
+
